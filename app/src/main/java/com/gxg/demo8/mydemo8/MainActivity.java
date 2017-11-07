@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.HttpTestActivity;
 import com.gxg.demo8.mydemo8.tinker.TinkerTestActivity;
 
 import butterknife.Bind;
@@ -32,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.tinker:
                 startActivityByClass(TinkerTestActivity.class);
                 break;
+
             case R.id.other:
+                startActivityByClass(HttpTestActivity.class);
                 break;
         }
     }
