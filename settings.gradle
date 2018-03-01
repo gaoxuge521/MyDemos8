@@ -1,1 +1,3 @@
 include ':app'
+include ':tagcloudlib'
+//http://blog.csdn.net/ddwhan0123/article/details/50715207
