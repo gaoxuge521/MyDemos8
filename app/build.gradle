@@ -65,6 +65,8 @@ android {
             res.srcDir "src/main/res/customaccelerateball";
             res.srcDir "src/main/res/androidgausspager";
             res.srcDir "src/main/res/taobaoprogressbar";
+            res.srcDir "src/main/res/zidingyidialog";
+            res.srcDir "src/main/res/lottie";
         }
     }
 }
@@ -96,6 +98,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     provided 'com.tencent.tinker:tinker-android-anno:1.8.0'
     compile project(':tagcloudlib')
+    compile ('com.airbnb.android:lottie:2.3.1'){ exclude group: 'com.android.support' }
 }
 
 

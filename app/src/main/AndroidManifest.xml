@@ -27,6 +27,8 @@
         <activity android:name=".customaccelerateball.CustomAccelerateBallActivity"/>
         <activity android:name=".androidgausspager.AndroidgausspagerActivity"/>
         <activity android:name=".taobaoprogressbar.CustomProgressBarActivity"/>
+        <activity android:name=".zidingyidialog.DialogTestActivity"/>
+        <activity android:name=".lottie.LottieActivity"/>
     </application>
 
 </manifest>
