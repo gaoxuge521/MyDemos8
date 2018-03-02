@@ -21,9 +21,10 @@
         </activity>
         <activity android:name=".tinker.TinkerTestActivity" />
         <activity android:name=".rxjava_retrofit_okhttp.HttpTestActivity" />
-        <activity android:name=".smartRefresh.SmartrefreshActivity"></activity>
+        <activity android:name=".smartRefresh.SmartrefreshActivity"/>
         <activity android:name=".tagcloudview.TagCloudViewActivity"/>
         <activity android:name=".tagcloudview.FragmentTestActivity"/>
+        <activity android:name=".customaccelerateball.CustomAccelerateBallActivity"/>
     </application>
 
 </manifest>

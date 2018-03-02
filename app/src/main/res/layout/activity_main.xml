@@ -64,6 +64,18 @@
                 android:layout_height="wrap_content"
                 android:text="炫酷的自定义翻滚View TagCloudView"/>
 
+            <TextView
+                android:id="@+id/CustomAccelerateBall"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"
+                android:background="@android:color/black"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textColor="#fff"
+                android:layout_width="383dp"
+                android:layout_height="wrap_content"
+                android:text="加速球效果，也就是圆形的ProgressBar的效果。"/>
+
         </LinearLayout>
     </ScrollView>
 

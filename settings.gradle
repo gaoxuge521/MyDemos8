@@ -1,3 +1,7 @@
 include ':app'
 include ':tagcloudlib'
 //http://blog.csdn.net/ddwhan0123/article/details/50715207
+
+
+//加速球效果，也就是圆形的ProgressBar的效果。
+//https://github.com/guoGavin/CustomAccelerateBall

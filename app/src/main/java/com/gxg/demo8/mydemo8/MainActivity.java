@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.gxg.demo8.mydemo8.customaccelerateball.CustomAccelerateBallActivity;
 import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.HttpTestActivity;
 import com.gxg.demo8.mydemo8.smartRefresh.SmartrefreshActivity;
 import com.gxg.demo8.mydemo8.tagcloudview.TagCloudViewActivity;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.TagCloudView,R.id.tinker, R.id.other,R.id.smartRefresh})
+    @OnClick({R.id.CustomAccelerateBall,R.id.TagCloudView,R.id.tinker, R.id.other,R.id.smartRefresh})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.smartRefresh:
@@ -46,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.TagCloudView:
                 startActivityByClass(TagCloudViewActivity.class);
+                break;
+            case R.id.CustomAccelerateBall:
+                startActivityByClass(CustomAccelerateBallActivity.class);
                 break;
         }
     }
