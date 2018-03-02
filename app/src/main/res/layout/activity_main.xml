@@ -75,6 +75,17 @@
                 android:layout_width="383dp"
                 android:layout_height="wrap_content"
                 android:text="加速球效果，也就是圆形的ProgressBar的效果。"/>
+            <TextView
+                android:id="@+id/GaussPager"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"
+                android:background="@android:color/black"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textColor="#fff"
+                android:layout_width="383dp"
+                android:layout_height="wrap_content"
+                android:text="GaussPager高斯模糊渐变的滑动效果"/>
 
         </LinearLayout>
     </ScrollView>

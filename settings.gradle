@@ -5,3 +5,6 @@ include ':tagcloudlib'
 
 //加速球效果，也就是圆形的ProgressBar的效果。
 //https://github.com/guoGavin/CustomAccelerateBall
+
+//GaussPager模糊渐变
+//http://www.apkbus.com/thread-254064-1-1.html

@@ -25,6 +25,7 @@
         <activity android:name=".tagcloudview.TagCloudViewActivity"/>
         <activity android:name=".tagcloudview.FragmentTestActivity"/>
         <activity android:name=".customaccelerateball.CustomAccelerateBallActivity"/>
+        <activity android:name=".androidgausspager.AndroidgausspagerActivity"/>
     </application>
 
 </manifest>
