@@ -11,6 +11,7 @@ import com.gxg.demo8.mydemo8.customaccelerateball.CustomAccelerateBallActivity;
 import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.HttpTestActivity;
 import com.gxg.demo8.mydemo8.smartRefresh.SmartrefreshActivity;
 import com.gxg.demo8.mydemo8.tagcloudview.TagCloudViewActivity;
+import com.gxg.demo8.mydemo8.taobaoprogressbar.CustomProgressBarActivity;
 import com.gxg.demo8.mydemo8.tinker.TinkerTestActivity;
 
 import butterknife.Bind;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.GaussPager,R.id.CustomAccelerateBall,R.id.TagCloudView,R.id.tinker, R.id.other,R.id.smartRefresh})
+    @OnClick({R.id.TaoBaoProgressBar,R.id.GaussPager,R.id.CustomAccelerateBall,R.id.TagCloudView,R.id.tinker, R.id.other,R.id.smartRefresh})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.smartRefresh:
@@ -54,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.GaussPager:
                 startActivityByClass(AndroidgausspagerActivity.class);
+                break;
+            case R.id.TaoBaoProgressBar:
+                startActivityByClass(CustomProgressBarActivity.class);
                 break;
         }
     }

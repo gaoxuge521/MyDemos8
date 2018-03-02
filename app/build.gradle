@@ -64,6 +64,7 @@ android {
             res.srcDir "src/main/res/tagcloudview";
             res.srcDir "src/main/res/customaccelerateball";
             res.srcDir "src/main/res/androidgausspager";
+            res.srcDir "src/main/res/taobaoprogressbar";
         }
     }
 }

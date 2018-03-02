@@ -8,3 +8,6 @@ include ':tagcloudlib'
 
 //GaussPager模糊渐变
 //http://www.apkbus.com/thread-254064-1-1.html
+
+//一个模仿淘宝秒杀商品页面的进度条
+//https://github.com/liuhuibin/TaoBaoProgressBar

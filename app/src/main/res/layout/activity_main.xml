@@ -87,6 +87,18 @@
                 android:layout_height="wrap_content"
                 android:text="GaussPager高斯模糊渐变的滑动效果"/>
 
+            <TextView
+                android:id="@+id/TaoBaoProgressBar"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"
+                android:background="@android:color/black"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textColor="#fff"
+                android:layout_width="383dp"
+                android:layout_height="wrap_content"
+                android:text="一个模仿淘宝秒杀商品页面的进度条"/>
+
         </LinearLayout>
     </ScrollView>
 
