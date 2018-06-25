@@ -36,12 +36,23 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        resConfigs "zh" //鉴于本app只应用于国内,设置语言环境为中文以减小APK
         multiDexEnabled true
 
         buildConfigField "String", "MESSAGE", "\"I am the base apk\""
         buildConfigField "String", "TINKER_ID", "\"${getTinkerIdValue()}\""
         buildConfigField "String", "PLATFORM", "\"all\""
+        ndk {
+            //根据需要 自行选择添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+        manifestPlaceholders = [
+
+                XG_ACCESS_ID:"2100297278",
+                XG_ACCESS_KEY : "A662AKG2LB6Z",
+                HW_APPID: "100320013",
+        ]
     }
     buildTypes {
         release {
@@ -96,6 +107,15 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
     compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
+
+    //信鸽jar
+    compile 'com.tencent.xinge:xinge:3.2.3-release'
+    //wup包
+    compile 'com.tencent.wup:wup:1.0.0.E-release'
+    //mid包
+    compile 'com.tencent.mid:mid:4.0.6-release'
+    //在集成信鸽的基础上新增华为push的jar包
+    compile 'com.tencent.xinge:xghw:2.5.2.300-release'
     //    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
     testCompile 'junit:junit:4.12'
     provided 'com.tencent.tinker:tinker-android-anno:1.8.0'
