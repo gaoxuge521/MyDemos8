@@ -4,18 +4,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.gxg.demo8.mydemo8.R;
+import com.gxg.demo8.mydemo8.httpUtils.HttpUtils;
+import com.gxg.demo8.mydemo8.httpUtils.ProSubscriber;
 import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.bean.MovieSubject;
-import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.exception.ExceptionHandle;
 import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.service.MovieService;
-import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.subscriber.ProgressSubscriber;
+import com.socks.library.KLog;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.Bind;
@@ -29,9 +28,6 @@ import retrofit2.adapter.rxjava.HttpException;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class HttpTestActivity extends AppCompatActivity {
 
@@ -79,29 +75,44 @@ public class HttpTestActivity extends AppCompatActivity {
         Map<String, Object> map = new HashMap<>();
         map.put("start","1");
         map.put("count","20");
-        RetrofitServiceManager.getInstance().getMovieData(new ProgressSubscriber<MovieSubject>(HttpTestActivity.this,true) {
+        HttpUtils.getInstance().requestGet("/v2/movie/top250", map, new ProSubscriber<String>(HttpTestActivity.this,true) {
             @Override
-            public void onError(ExceptionHandle.ResponeThrowable throwable) {
-                int statusCode = throwable.code;
-                String message = throwable.message;
-                Log.e("sss", "onError: "+message+"   "+statusCode );
-                ToastByStr("请求失败"+message+"   "+statusCode);
+            public void onError(Throwable e) {
+                super.onError(e);
+                KLog.e("sss   ", "onError: "+e.getMessage());
             }
 
             @Override
-            public void onNext(MovieSubject movieSubject) {
-                super.onNext(movieSubject);
-                ToastByStr("请求成功"+movieSubject.getTitle());
-                mMovieSubject = movieSubject;
-                setData();
-            }
+            public void onNext(String o) {
+                super.onNext(o);
+                KLog.json(o);
 
-            @Override
-            public void onCompleted() {
-                ToastByStr("请求结束");
-                super.onCompleted();
+                KLog.e("sss   "+o);
             }
-        },map);
+        });
+//        RetrofitServiceManager.getInstance().getMovieData(new ProgressSubscriber<MovieSubject>(HttpTestActivity.this,true) {
+//            @Override
+//            public void onError(ExceptionHandle.ResponeThrowable throwable) {
+//                int statusCode = throwable.code;
+//                String message = throwable.message;
+//                Log.e("sss", "onError: "+message+"   "+statusCode );
+//                ToastByStr("请求失败"+message+"   "+statusCode);
+//            }
+//
+//            @Override
+//            public void onNext(MovieSubject movieSubject) {
+//                super.onNext(movieSubject);
+//                ToastByStr("请求成功"+movieSubject.getTitle());
+//                mMovieSubject = movieSubject;
+//                setData();
+//            }
+//
+//            @Override
+//            public void onCompleted() {
+//                ToastByStr("请求结束");
+//                super.onCompleted();
+//            }
+//        },map);
     }
 
     private void getDataByNew() {

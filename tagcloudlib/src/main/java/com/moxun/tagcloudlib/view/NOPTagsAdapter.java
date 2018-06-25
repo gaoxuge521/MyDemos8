@@ -8,7 +8,8 @@ import android.view.ViewGroup;
  * Default adapter and do nothing
  * Created by moxun on 16/3/25.
  */
-/*package*/ class NOPTagsAdapter extends TagsAdapter {
+/*package*/
+public class NOPTagsAdapter extends TagsAdapter {
     @Override
     public int getCount() {
         return 0;

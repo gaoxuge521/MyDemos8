@@ -2,18 +2,14 @@ package com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp;
 
 import android.util.Log;
 
-import com.google.gson.Gson;
 import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.bean.MovieSubject;
-//import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.exception.ApiException;
 import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.result.HttpResult;
 import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.service.MovieService;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
-import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -22,6 +18,8 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
+
+//import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.exception.ApiException;
 
 /**
  * 作者：Administrator on 2017/11/6 14:34
@@ -32,7 +30,7 @@ public class RetrofitServiceManager {
     public static final int DEFAULE_TIME_OUT = 5; //超时时间5s
     public static final int DEFAULT_READ_OUT = 10;
 
-    public static final String BASEURL = "https://api.douban.com/v2/movie/";
+    public static final String BASEURL = "https://api.douban.com";
 
     private Retrofit retrofit;
     private MovieService movieService;
