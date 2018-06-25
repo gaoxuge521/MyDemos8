@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.gxg.demo8.mydemo8.R;
 import com.gxg.demo8.mydemo8.httpUtils.HttpUtils;
 import com.gxg.demo8.mydemo8.httpUtils.ProSubscriber;
@@ -86,7 +87,8 @@ public class HttpTestActivity extends AppCompatActivity {
             public void onNext(String o) {
                 super.onNext(o);
                 KLog.json(o);
-
+                mMovieSubject =   new Gson().fromJson(o,MovieSubject.class);
+                setData();
                 KLog.e("sss   "+o);
             }
         });

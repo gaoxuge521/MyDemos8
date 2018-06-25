@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.multidex.MultiDex;
 
+import com.socks.library.KLog;
 import com.tencent.tinker.anno.DefaultLifeCycle;
 import com.tencent.tinker.lib.tinker.TinkerInstaller;
 import com.tencent.tinker.loader.app.ApplicationLike;
@@ -32,5 +33,6 @@ public class MyApplicationLike extends ApplicationLike {
     @Override
     public void onCreate() {
         super.onCreate();
+        KLog.e("sss 初始化");
     }
 }

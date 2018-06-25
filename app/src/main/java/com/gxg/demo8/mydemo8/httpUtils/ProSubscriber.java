@@ -2,7 +2,7 @@ package com.gxg.demo8.mydemo8.httpUtils;
 
 import android.content.Context;
 
-import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.utils.CustomProgressDialog;
+import com.gxg.demo8.mydemo8.CustomProgressDialogIos;
 
 import rx.Subscriber;
 
@@ -12,16 +12,16 @@ import rx.Subscriber;
  */
 public abstract class ProSubscriber<T> extends Subscriber<T> {
     private Context mContext;
-    private boolean isShowDialog = false;//默认不显示
-    private CustomProgressDialog customProgressDialog;
+    private boolean isShowDialog = false;//是否显示加载框，默认不显示
+    private CustomProgressDialogIos customProgressDialog;
     public ProSubscriber(Context mContext, boolean isShowDialog) {
         this.mContext = mContext;
         this.isShowDialog = isShowDialog;
-        customProgressDialog = new CustomProgressDialog(mContext);
+        customProgressDialog = new CustomProgressDialogIos(mContext);
     }
     public ProSubscriber(Context mContext) {
         this.mContext = mContext;
-        customProgressDialog =  CustomProgressDialog.createDialog(mContext);
+        customProgressDialog = new CustomProgressDialogIos(mContext);
     }
 
     @Override
@@ -34,7 +34,10 @@ public abstract class ProSubscriber<T> extends Subscriber<T> {
 
     @Override
     public void onCompleted() {
-        dismissProgressDialog();
+        if(isShowDialog){
+            dismissProgressDialog();
+        }
+        onCancelProgress();
     }
 
     @Override
@@ -56,6 +59,14 @@ public abstract class ProSubscriber<T> extends Subscriber<T> {
         if ( customProgressDialog != null) {
             customProgressDialog.dismiss();
             customProgressDialog = null;
+        }
+    }
+    /**
+     * 取消ProgressDialog的时候，取消对observable的订阅，同时也取消了http请求
+     */
+    public void onCancelProgress() {
+        if (!this.isUnsubscribed()) {
+            this.unsubscribe();
         }
     }
 }
