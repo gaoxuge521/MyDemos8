@@ -21,14 +21,24 @@ import rx.schedulers.Schedulers;
 public class HttpUtils {
     public static final int DEFAULE_TIME_OUT = 5; //超时时间5s
     public static final int DEFAULT_READ_OUT = 10;
+    // Retrofit2 的baseUlr 必须以 /（斜线） 结束，不然会抛出一个IllegalArgumentException,
     public static final String BASEURL = "https://api.douban.com/v2/movie/";
     private Retrofit retrofit;
     private StringService stringService;
-
+    /**
+     * get请求
+     */
     public void requestGet(@NonNull String url, Map<String,Object> map, Subscriber<String> subscriber){
         Observable<String> observable = stringService.requestGet(url, map);
         toSubscriber(observable,subscriber);
+    }
 
+    /**
+     * post请求
+     */
+    public void requestPost(@NonNull String url, Map<String,Object> map, Subscriber<String> subscriber){
+        Observable<String> observable = stringService.requestPost(url, map);
+        toSubscriber(observable,subscriber);
     }
     private<T> void toSubscriber(Observable<T> o,Subscriber<T> s){
         o.subscribeOn(Schedulers.io())

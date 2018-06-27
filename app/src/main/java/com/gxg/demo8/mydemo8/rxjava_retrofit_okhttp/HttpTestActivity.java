@@ -76,7 +76,7 @@ public class HttpTestActivity extends AppCompatActivity {
         Map<String, Object> map = new HashMap<>();
         map.put("start","1");
         map.put("count","20");
-        HttpUtils.getInstance().requestGet("/v2/movie/top250", map, new ProSubscriber<String>(HttpTestActivity.this,true) {
+        HttpUtils.getInstance().requestPost("/v2/movie/top250", map, new ProSubscriber<String>(HttpTestActivity.this,true) {
             @Override
             public void onError(Throwable e) {
                 super.onError(e);

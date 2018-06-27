@@ -123,6 +123,18 @@
                 android:layout_height="wrap_content"
                 android:text="lottie"/>
 
+            <TextView
+                android:id="@+id/rxjavatest"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"
+                android:background="@android:color/black"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textColor="#fff"
+                android:layout_width="383dp"
+                android:layout_height="wrap_content"
+                android:text="RxJava联系"/>
+
         </LinearLayout>
     </ScrollView>
 

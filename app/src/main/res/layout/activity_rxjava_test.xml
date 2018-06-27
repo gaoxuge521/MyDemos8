@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:padding="10dp"
+            android:id="@+id/tv_getjson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="读取json文件"/>
+        <TextView
+            android:padding="10dp"
+            android:id="@+id/tv_getjson2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="获取网络图片"/>
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+</ScrollView>

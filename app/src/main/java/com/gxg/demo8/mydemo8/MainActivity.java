@@ -10,6 +10,7 @@ import com.gxg.demo8.mydemo8.androidgausspager.AndroidgausspagerActivity;
 import com.gxg.demo8.mydemo8.customaccelerateball.CustomAccelerateBallActivity;
 import com.gxg.demo8.mydemo8.lottie.LottieActivity;
 import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.HttpTestActivity;
+import com.gxg.demo8.mydemo8.rxjavatest.RxJavaTestActivity;
 import com.gxg.demo8.mydemo8.smartRefresh.SmartrefreshActivity;
 import com.gxg.demo8.mydemo8.tagcloudview.TagCloudViewActivity;
 import com.gxg.demo8.mydemo8.taobaoprogressbar.CustomProgressBarActivity;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.lottie,R.id.error_dialog,R.id.TaoBaoProgressBar,R.id.GaussPager,R.id.CustomAccelerateBall,R.id.TagCloudView,R.id.tinker, R.id.other,R.id.smartRefresh})
+    @OnClick({R.id.rxjavatest,R.id.lottie,R.id.error_dialog,R.id.TaoBaoProgressBar,R.id.GaussPager,R.id.CustomAccelerateBall,R.id.TagCloudView,R.id.tinker, R.id.other,R.id.smartRefresh})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.smartRefresh:
@@ -66,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.lottie:
                 startActivityByClass(LottieActivity.class);
+                break;
+            case R.id.rxjavatest:
+                startActivityByClass(RxJavaTestActivity.class);
                 break;
 
         }
