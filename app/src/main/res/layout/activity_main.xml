@@ -134,7 +134,17 @@
                 android:layout_width="383dp"
                 android:layout_height="wrap_content"
                 android:text="RxJava联系"/>
-
+            <TextView
+                android:id="@+id/toolbar"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"
+                android:background="@android:color/black"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textColor="#fff"
+                android:layout_width="383dp"
+                android:layout_height="wrap_content"
+                android:text="toolbar联系"/>
         </LinearLayout>
     </ScrollView>
 

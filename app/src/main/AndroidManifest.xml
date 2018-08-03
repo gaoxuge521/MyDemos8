@@ -78,6 +78,9 @@
         <activity android:name=".zidingyidialog.DialogTestActivity"/>
         <activity android:name=".lottie.LottieActivity"/>
         <activity android:name=".rxjavatest.RxJavaTestActivity"/>
+        <activity android:name=".toobarDemo.ToobarDemoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarAppTheme"/>
     </application>
 
 </manifest>

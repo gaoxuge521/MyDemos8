@@ -2,16 +2,21 @@ package com.gxg.demo8.mydemo8.httpUtils;
 
 import android.support.annotation.NonNull;
 
+import com.gxg.demo8.mydemo8.rxjava_retrofit_okhttp.exception.ApiException;
+import com.socks.library.KLog;
+
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -29,7 +34,7 @@ public class HttpUtils {
      * get请求
      */
     public void requestGet(@NonNull String url, Map<String,Object> map, Subscriber<String> subscriber){
-        Observable<String> observable = stringService.requestGet(url, map);
+        Observable<String> observable = stringService.requestGet(url, map).map(new HttpResultFunc());
         toSubscriber(observable,subscriber);
     }
 
@@ -37,8 +42,24 @@ public class HttpUtils {
      * post请求
      */
     public void requestPost(@NonNull String url, Map<String,Object> map, Subscriber<String> subscriber){
-        Observable<String> observable = stringService.requestPost(url, map);
+        Observable<String> observable = stringService.requestPost(url, map).map(new HttpResultFunc());
         toSubscriber(observable,subscriber);
+    }
+
+    /**
+     * 用来统一处理Http的resultCode,并将HttpResult的Data部分剥离出来返回给subscriber
+     */
+    private class HttpResultFunc implements Func1<Response, String> {
+        @Override
+        public String call(Response response) {
+            KLog.e("sss  "+response.code());
+            if(response.code()==200){
+                return response.body().toString();
+            }else{
+                throw new ApiException(response.code()+"", response.message());
+            }
+
+        }
     }
     private<T> void toSubscriber(Observable<T> o,Subscriber<T> s){
         o.subscribeOn(Schedulers.io())
